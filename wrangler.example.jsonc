@@ -16,6 +16,12 @@
     "enabled": true
   },
   "keep_vars": true,
+  "vars": {
+    "BETTER_AUTH_URL": "https://rikkaqwq.cc.cd",
+    "DOMAIN": "rikkaqwq.cc.cd",
+    "ENVIRONMENT": "prod",
+    "GITHUB_CLIENT_ID": "Ov23liF9d6c6RpUqXnbk"
+  },
   "routes": [
     {
       "pattern": "DOMAIN_PLACEHOLDER",
