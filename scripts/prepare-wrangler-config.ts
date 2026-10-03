@@ -107,10 +107,17 @@ export function prepareWranglerConfigContent({
     content = content.replaceAll(search, replacement);
   }
 
-  return content.replace(
+  const withRoutes = content.replace(
     /"routes":\s*\[[\s\S]*?\],/,
     buildRoutesBlock(domain, mode, zoneNameOverride),
   );
+
+  // 未配置 R2 时移除 r2_buckets 绑定，避免部署时因桶不存在而失败。
+  if (!bucketName) {
+    return withRoutes.replace(/"r2_buckets":\s*\[[\s\S]*?\],\s*/, "");
+  }
+
+  return withRoutes;
 }
 
 export function prepareWranglerConfig(env: EnvMap) {
@@ -120,7 +127,7 @@ export function prepareWranglerConfig(env: EnvMap) {
   const workerName = requireEnv(env, "WORKER_NAME");
   const queueName = requireEnv(env, "QUEUE_NAME");
   const content = prepareWranglerConfigContent({
-    bucketName: requireEnv(env, "BUCKET_NAME"),
+    bucketName: env.BUCKET_NAME?.trim() || "",
     d1DatabaseId: requireEnv(env, "D1_DATABASE_ID"),
     domain,
     kvNamespaceId: requireEnv(env, "KV_NAMESPACE_ID"),
