@@ -22,7 +22,9 @@ import { Route as PublicIndexRouteImport } from './routes/_public/index'
 import { Route as PublicSplatRouteImport } from './routes/_public/$'
 import { Route as PublicAuthRouteRouteImport } from './routes/_public/_auth/route'
 import { Route as PublicUserRouteRouteImport } from './routes/_public/_user/route'
+import { Route as PublicDownloadRouteImport } from './routes/_public/download'
 import { Route as PublicFriendLinksRouteImport } from './routes/_public/friend-links'
+import { Route as PublicGalleryRouteImport } from './routes/_public/gallery'
 import { Route as PublicPostsRouteImport } from './routes/_public/posts'
 import { Route as PublicSearchRouteImport } from './routes/_public/search'
 import { Route as PublicUnsubscribeRouteImport } from './routes/_public/unsubscribe'
@@ -120,9 +122,19 @@ const PublicUserRouteRoute = PublicUserRouteRouteImport.update({
   id: '/_user',
   getParentRoute: () => PublicRouteRoute,
 } as any)
+const PublicDownloadRoute = PublicDownloadRouteImport.update({
+  id: '/download',
+  path: '/download',
+  getParentRoute: () => PublicRouteRoute,
+} as any)
 const PublicFriendLinksRoute = PublicFriendLinksRouteImport.update({
   id: '/friend-links',
   path: '/friend-links',
+  getParentRoute: () => PublicRouteRoute,
+} as any)
+const PublicGalleryRoute = PublicGalleryRouteImport.update({
+  id: '/gallery',
+  path: '/gallery',
   getParentRoute: () => PublicRouteRoute,
 } as any)
 const PublicPostsRoute = PublicPostsRouteImport.update({
@@ -314,7 +326,9 @@ export interface FileRoutesByFullPath {
   '/admin/posts': typeof AdminPostsRouteRouteWithChildren
   '/admin/settings': typeof AdminSettingsRouteRouteWithChildren
   '/$': typeof PublicSplatRoute
+  '/download': typeof PublicDownloadRoute
   '/friend-links': typeof PublicFriendLinksRoute
+  '/gallery': typeof PublicGalleryRoute
   '/posts': typeof PublicPostsRoute
   '/search': typeof PublicSearchRoute
   '/unsubscribe': typeof PublicUnsubscribeRoute
@@ -358,7 +372,9 @@ export interface FileRoutesByTo {
   '/stats.js': typeof StatsDotjsRoute
   '/': typeof PublicIndexRoute
   '/$': typeof PublicSplatRoute
+  '/download': typeof PublicDownloadRoute
   '/friend-links': typeof PublicFriendLinksRoute
+  '/gallery': typeof PublicGalleryRoute
   '/posts': typeof PublicPostsRoute
   '/search': typeof PublicSearchRoute
   '/unsubscribe': typeof PublicUnsubscribeRoute
@@ -407,7 +423,9 @@ export interface FileRoutesById {
   '/admin/posts': typeof AdminPostsRouteRouteWithChildren
   '/admin/settings': typeof AdminSettingsRouteRouteWithChildren
   '/_public/$': typeof PublicSplatRoute
+  '/_public/download': typeof PublicDownloadRoute
   '/_public/friend-links': typeof PublicFriendLinksRoute
+  '/_public/gallery': typeof PublicGalleryRoute
   '/_public/posts': typeof PublicPostsRoute
   '/_public/search': typeof PublicSearchRoute
   '/_public/unsubscribe': typeof PublicUnsubscribeRoute
@@ -457,7 +475,9 @@ export interface FileRouteTypes {
     | '/admin/posts'
     | '/admin/settings'
     | '/$'
+    | '/download'
     | '/friend-links'
+    | '/gallery'
     | '/posts'
     | '/search'
     | '/unsubscribe'
@@ -501,7 +521,9 @@ export interface FileRouteTypes {
     | '/stats.js'
     | '/'
     | '/$'
+    | '/download'
     | '/friend-links'
+    | '/gallery'
     | '/posts'
     | '/search'
     | '/unsubscribe'
@@ -549,7 +571,9 @@ export interface FileRouteTypes {
     | '/admin/posts'
     | '/admin/settings'
     | '/_public/$'
+    | '/_public/download'
     | '/_public/friend-links'
+    | '/_public/gallery'
     | '/_public/posts'
     | '/_public/search'
     | '/_public/unsubscribe'
@@ -694,11 +718,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PublicUserRouteRouteImport
       parentRoute: typeof PublicRouteRoute
     }
+    '/_public/download': {
+      id: '/_public/download'
+      path: '/download'
+      fullPath: '/download'
+      preLoaderRoute: typeof PublicDownloadRouteImport
+      parentRoute: typeof PublicRouteRoute
+    }
     '/_public/friend-links': {
       id: '/_public/friend-links'
       path: '/friend-links'
       fullPath: '/friend-links'
       preLoaderRoute: typeof PublicFriendLinksRouteImport
+      parentRoute: typeof PublicRouteRoute
+    }
+    '/_public/gallery': {
+      id: '/_public/gallery'
+      path: '/gallery'
+      fullPath: '/gallery'
+      preLoaderRoute: typeof PublicGalleryRouteImport
       parentRoute: typeof PublicRouteRoute
     }
     '/_public/posts': {
@@ -980,7 +1018,9 @@ interface PublicRouteRouteChildren {
   PublicAuthRouteRoute: typeof PublicAuthRouteRouteWithChildren
   PublicUserRouteRoute: typeof PublicUserRouteRouteWithChildren
   PublicSplatRoute: typeof PublicSplatRoute
+  PublicDownloadRoute: typeof PublicDownloadRoute
   PublicFriendLinksRoute: typeof PublicFriendLinksRoute
+  PublicGalleryRoute: typeof PublicGalleryRoute
   PublicPostsRoute: typeof PublicPostsRoute
   PublicSearchRoute: typeof PublicSearchRoute
   PublicUnsubscribeRoute: typeof PublicUnsubscribeRoute
@@ -992,7 +1032,9 @@ const PublicRouteRouteChildren: PublicRouteRouteChildren = {
   PublicAuthRouteRoute: PublicAuthRouteRouteWithChildren,
   PublicUserRouteRoute: PublicUserRouteRouteWithChildren,
   PublicSplatRoute: PublicSplatRoute,
+  PublicDownloadRoute: PublicDownloadRoute,
   PublicFriendLinksRoute: PublicFriendLinksRoute,
+  PublicGalleryRoute: PublicGalleryRoute,
   PublicPostsRoute: PublicPostsRoute,
   PublicSearchRoute: PublicSearchRoute,
   PublicUnsubscribeRoute: PublicUnsubscribeRoute,

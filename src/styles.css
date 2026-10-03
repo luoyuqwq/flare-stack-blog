@@ -1,9 +1,13 @@
 @import "tailwindcss";
 @import "./styles/motion.css";
 @import "tw-animate-css";
-@import "@fontsource/roboto/400.css";
-@import "@fontsource/roboto/500.css";
-@import "@fontsource/roboto/700.css";
+@import "@fontsource/inter/400.css";
+@import "@fontsource/inter/500.css";
+@import "@fontsource/inter/600.css";
+@import "@fontsource/inter/700.css";
+@import "@fontsource/playfair-display/500.css";
+@import "@fontsource/playfair-display/600.css";
+@import "@fontsource/playfair-display/700.css";
 @plugin "@tailwindcss/typography";
 @source not "../dist/**/*";
 
@@ -13,9 +17,10 @@
 
 @theme {
   --font-sans:
-    Roboto, sans-serif, ui-sans-serif, system-ui, "Apple Color Emoji",
-    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --font-serif: ui-serif, Georgia, "Noto Serif SC", "Songti SC", serif;
+    "Inter", ui-sans-serif, system-ui, "PingFang SC", "Microsoft YaHei",
+    "Segoe UI", sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  --font-serif:
+    "Playfair Display", Georgia, "Noto Serif SC", "Songti SC", serif;
   --font-mono:
     "JetBrains Mono Variable", ui-monospace, SFMono-Regular, Menlo, Monaco,
     Consolas, "Liberation Mono", "Courier New", monospace;
@@ -57,8 +62,8 @@
   }
 
   :root {
-    --fuwari-radius-large: 1rem;
-    --fuwari-hue: 250;
+    --fuwari-radius-large: 0.75rem;
+    --fuwari-hue: 210;
     --fuwari-success-hue: 145;
     --fuwari-warning-hue: 85;
     --fuwari-danger-hue: 25;
@@ -67,42 +72,42 @@
     --fuwari-page-width: 75rem;
     --fuwari-toc-width: calc((100vw - var(--fuwari-page-width)) / 2 - 1rem);
 
-    --fuwari-primary: oklch(0.7 0.14 var(--fuwari-hue));
-    --fuwari-primary-hover: oklch(0.65 0.14 var(--fuwari-hue));
-    --fuwari-primary-active: oklch(0.6 0.14 var(--fuwari-hue));
-    --fuwari-page-bg: oklch(0.95 0.01 var(--fuwari-hue));
-    --fuwari-card-bg: white;
-    --fuwari-btn-content: oklch(0.55 0.12 var(--fuwari-hue));
-    --fuwari-btn-regular-bg: oklch(0.95 0.025 var(--fuwari-hue));
-    --fuwari-btn-regular-bg-hover: oklch(0.9 0.05 var(--fuwari-hue));
-    --fuwari-btn-regular-bg-active: oklch(0.85 0.08 var(--fuwari-hue));
-    --fuwari-btn-plain-bg-hover: oklch(0.95 0.025 var(--fuwari-hue));
-    --fuwari-btn-plain-bg-active: oklch(0.98 0.01 var(--fuwari-hue));
-    --fuwari-deep-text: oklch(0.25 0.02 var(--fuwari-hue));
+    --fuwari-primary: #0071e3;
+    --fuwari-primary-hover: #0077ed;
+    --fuwari-primary-active: #0060c9;
+    --fuwari-page-bg: #ffffff;
+    --fuwari-card-bg: #ffffff;
+    --fuwari-btn-content: #1d1d1f;
+    --fuwari-btn-regular-bg: #f5f5f7;
+    --fuwari-btn-regular-bg-hover: #ebebee;
+    --fuwari-btn-regular-bg-active: #e3e3e6;
+    --fuwari-btn-plain-bg-hover: #f5f5f7;
+    --fuwari-btn-plain-bg-active: #ebebee;
+    --fuwari-deep-text: #1d1d1f;
     --fuwari-enter-btn-bg: var(--fuwari-btn-regular-bg);
     --fuwari-enter-btn-bg-hover: var(--fuwari-btn-regular-bg-hover);
     --fuwari-enter-btn-bg-active: var(--fuwari-btn-regular-bg-active);
-    --fuwari-meta-divider: rgba(0, 0, 0, 0.2);
-    --fuwari-selection-bg: oklch(0.9 0.05 var(--fuwari-hue));
+    --fuwari-meta-divider: rgba(0, 0, 0, 0.12);
+    --fuwari-selection-bg: #cce4ff;
     --fuwari-inline-code-bg: var(--fuwari-btn-regular-bg);
-    --fuwari-inline-code-color: var(--fuwari-btn-content);
+    --fuwari-inline-code-color: #0071e3;
     --fuwari-code-bg: var(--fuwari-card-bg);
-    --fuwari-input-bg: rgba(0, 0, 0, 0.07);
-    --fuwari-input-border: rgba(0, 0, 0, 0.1);
-    --fuwari-fg: rgb(0 0 0 / 0.9);
-    --fuwari-fg-75: rgb(0 0 0 / 0.75);
-    --fuwari-fg-50: rgb(0 0 0 / 0.5);
-    --fuwari-fg-30: rgb(0 0 0 / 0.3);
+    --fuwari-input-bg: rgba(0, 0, 0, 0.03);
+    --fuwari-input-border: #d2d2d7;
+    --fuwari-fg: rgb(29 29 31 / 0.92);
+    --fuwari-fg-75: rgb(29 29 31 / 0.75);
+    --fuwari-fg-50: rgb(29 29 31 / 0.5);
+    --fuwari-fg-30: rgb(29 29 31 / 0.3);
     --fuwari-link-underline: color-mix(
       in oklab,
-      var(--fuwari-primary) 55%,
+      var(--fuwari-primary) 35%,
       transparent
     );
     --fuwari-link-hover: var(--fuwari-primary);
     --fuwari-codeblock-selection: var(--fuwari-selection-bg);
-    --fuwari-toc-btn-hover: oklch(0.926 0.015 var(--fuwari-hue));
-    --fuwari-toc-btn-active: oklch(0.9 0.015 var(--fuwari-hue));
-    --fuwari-toc-badge-bg: oklch(0.89 0.05 var(--fuwari-hue));
+    --fuwari-toc-btn-hover: #f5f5f7;
+    --fuwari-toc-btn-active: #ebebee;
+    --fuwari-toc-badge-bg: #e8f1fc;
 
     --fuwari-success: oklch(0.7 0.14 var(--fuwari-success-hue));
     --fuwari-success-fg: oklch(0.45 0.12 var(--fuwari-success-hue));
@@ -716,4 +721,22 @@
   inset: 0;
   background: var(--fuwari-selection-bg);
   pointer-events: none;
+}
+
+/* === Apple-clean: article headings use a bold sans-serif face === */
+.fuwari-custom-md h1,
+.fuwari-custom-md h2,
+.fuwari-custom-md h3,
+.fuwari-custom-md h4,
+.fuwari-custom-md h5,
+.fuwari-custom-md h6 {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+/* === Apple-clean: blockquote uses a thin blue left bar === */
+.fuwari-custom-md blockquote:before {
+  background-color: var(--fuwari-primary);
+  border-radius: 0;
 }

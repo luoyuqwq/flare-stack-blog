@@ -1,10 +1,10 @@
 import type { SiteConfig } from "@/features/config/site-config.schema";
 
 export const blogConfig = {
-  title: "站点名称",
-  author: "作者",
+  title: "Rikka 的小站",
+  author: "Rikka",
   description:
-    "这是我的个人网站和博客。在这里，我主要分享与技术和生活相关的内容。欢迎阅读！",
+    "Rikka 的个人小站 —— 记录生活，分享 Minecraft 与资源。",
   social: [
     { platform: "github", url: "https://github.com/example" },
     { platform: "email", url: "mailto:example@email.com" },
@@ -23,7 +23,7 @@ export const blogConfig = {
     fuwari: {
       homeBg: "/images/home-bg.webp",
       avatar: "/images/avatar.png",
-      primaryHue: 250,
+      primaryHue: 210,
     },
   },
 } as const satisfies SiteConfig;
